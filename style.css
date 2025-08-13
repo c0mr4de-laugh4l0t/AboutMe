@@ -1,0 +1,127 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f0f2f5;
+    color: #333;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+header {
+    background: #4a90e2;
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid white;
+    width: 0;
+    animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite alternate;
+    margin: auto;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 2s forwards 3s;
+}
+
+/* Animations */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 15ch; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 10;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1f5dbf;
+}
+
+section {
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section:nth-child(even) {
+    background: #e6f0ff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #4a90e2;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+}
+
+.github {
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+}
+
+.github.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.github a {
+    text-decoration: none;
+    color: white;
+    background: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.github a:hover {
+    background: #4a90e2;
+}
