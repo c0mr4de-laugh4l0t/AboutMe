@@ -1,4 +1,4 @@
-/* Reset */
+7/* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -124,4 +124,33 @@ ul {
 
 .github a:hover {
     background: #4a90e2;
+}
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    perspective: 1000px; /* for parallax effect */
+}
+
+#hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%; /* slightly larger for movement */
+    height: 110%;
+    background-image: url('assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transform: translateZ(0);
+    transition: transform 0.2s ease-out;
+}
+
+.hero-content {
+    z-index: 2;
+    color: #00ffd5;
 }
