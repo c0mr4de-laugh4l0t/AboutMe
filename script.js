@@ -31,6 +31,13 @@ function resizeCanvas() {
 
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
+const heroBg = document.getElementById('hero-background');
+
+document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20; // range -10 to 10
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    heroBg.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+});
 
 // Basic animation loop (you can replace with Three.js or custom animations)
 function animate() {
