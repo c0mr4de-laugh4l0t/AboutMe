@@ -1,156 +1,123 @@
-7/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background: #f0f2f5;
-    color: #333;
-    scroll-behavior: smooth;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #111;
     overflow-x: hidden;
 }
 
-header {
-    background: #4a90e2;
-    color: white;
-    padding: 4rem 1rem;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 3rem;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.15em solid white;
-    width: 0;
-    animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite alternate;
-    margin: auto;
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    opacity: 0;
-    animation: fadeIn 2s forwards 3s;
-}
-
-/* Animations */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 15ch; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    z-index: 10;
-}
-
-nav a {
-    text-decoration: none;
-    color: #4a90e2;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #1f5dbf;
-}
-
-section {
-    padding: 4rem 1rem;
-    max-width: 800px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-section:nth-child(even) {
-    background: #e6f0ff;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #4a90e2;
-}
-
-ul {
-    list-style-type: square;
-    padding-left: 1.5rem;
-}
-
-.github {
-    text-align: center;
-    margin-top: 2rem;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.5s ease;
-}
-
-.github.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.github a {
-    text-decoration: none;
-    color: white;
-    background: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.github a:hover {
-    background: #4a90e2;
-}
-#hero {
+header#hero {
     position: relative;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    perspective: 1000px; /* for parallax effect */
+    background: url('your-background.jpg') center/cover no-repeat;
+    animation: zoomIn 20s ease-in-out infinite alternate;
 }
 
-#hero-background {
+@keyframes zoomIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 110%; /* slightly larger for movement */
-    height: 110%;
-    background-image: url('assets/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-    transform: translateZ(0);
-    transition: transform 0.2s ease-out;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
 }
 
 .hero-content {
+    position: relative;
     z-index: 2;
-    color: #00ffd5;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: #ff9800;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: #ff9800;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e68900;
+}
+
+.section {
+    padding: 4rem 1rem;
+    text-align: center;
+    background-color: #111;
+}
+
+.alt-bg {
+    background-color: #1a1a1a;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: #222;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #000;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
