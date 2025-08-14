@@ -1,16 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const fadeIns = document.querySelectorAll('.fade-in');
+    const scrollBtn = document.querySelector(".scroll-btn");
 
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+    scrollBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector("#about").scrollIntoView({
+            behavior: "smooth"
         });
-    }, { threshold: 0.2 });
-
-    fadeIns.forEach(section => {
-        appearOnScroll.observe(section);
     });
 });
