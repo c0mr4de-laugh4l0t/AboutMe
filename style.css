@@ -5,91 +5,75 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    font-family: 'Arial', sans-serif;
+/* Background */
+body {
+    height: 100vh;
+    width: 100%;
+    background: url('HD-wallpaper-the-falling-astronaut-astronaut-artist-artwork-digital-art.jpg') no-repeat center center/cover;
+    animation: zoomIn 20s ease-in-out forwards;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     color: white;
-    overflow-x: hidden;
-    background: black;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
 }
 
-/* Background Image Animation */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('HD-wallpaper-the-falling-astronaut-astronaut-artist-artwork-digital-art.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    animation: zoom 30s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
-}
-
-/* Centered Header */
-header {
-    text-align: center;
-    padding-top: 25vh;
-}
-
-h1 {
+/* Title */
+.title {
     font-size: 4rem;
-    letter-spacing: 4px;
-    font-weight: bold;
+    letter-spacing: 3px;
 }
 
-p {
+/* Subtitle */
+.subtitle {
     font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Fade-In Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1.5s forwards;
-}
-
-.delay { animation-delay: 1s; }
-.delay-2 { animation-delay: 2s; }
-.delay-3 { animation-delay: 3s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Section Styling */
-main {
-    padding: 50px;
-    text-align: center;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.5);
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-footer a {
-    color: #ffcc66;
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #ff6600;
+    color: white;
     text-decoration: none;
     font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
 }
-footer a:hover {
-    text-decoration: underline;
+
+.btn:hover {
+    background: #e55d00;
+}
+
+/* Animations */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
